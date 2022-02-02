@@ -21,16 +21,15 @@ let screens = prompt(' Какие типы екранов нужно разра�
 let screenPrice = +prompt('Сколько будет стоить данная работа?');
 let adaptive = prompt('Нужен ли адаптив на сайте?');
 
+let rollback = 10;
+let allServicePrices;
+let fullPrice;
+let servicePercentPrice;
 
 let service1 = prompt('Какой дополнительный тип услуги нужен?');
 let servicePrice1 = +prompt('Сколько это будет стоить?');
 let service2 = prompt('Какой дополнительный тип услуги нужен?');
 let servicePrice2 = +prompt('Сколько это будет стоить?');
-
-let rollback = 10;
-let allServicePrices;
-let fullPrice;
-let servicePercentPrice;
 
 
 
@@ -56,14 +55,14 @@ const getServicePercentPrices = function() {
 }
 
 const getRollbackMessage = function(price) {
-    if(price >= 30000) {
-        console.log('Даем скидку в 10%');
+      if(price >= 30000) {
+        return 'Даем скидку в 10%';
     } else if(price >= 15000 && price < 30000) {
-        console.log('Даем скидку в 5%');
+        return 'Даем скидку в 5%';
     } else if(price >= 0 &&  price < 15000) {
-        console.log('Скидка не предусмотрена');
+        return 'Скидка не предусмотрена';
     } else {
-        console.log('Что-то пошло не так');
+        return 'Что-то пошло не так';
     }
 } 
 
@@ -83,6 +82,7 @@ console.log(typeof adaptive);
 
 console.log(screens.length);
 console.log(servicePercentPrice);
+
 
 
 console.log("Стоимость верстки экрана " + screenPrice + " юаней и Стоимость разработки сайта " + fullPrice + " юаней");
