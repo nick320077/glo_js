@@ -1,20 +1,24 @@
 
+const title = document.getElementsByTagName('h1')[0];
+const buttonPlus = document.querySelector('.screen_btn');
+const otherItemsPersent = document.querySelectorAll(".other-items.percent");
+const otherItemsNumber = document.querySelectorAll(".other-items.number");
 
-// const title = 'project01';
-// console.log(typeof title);
-// const screens = 'Простые, Сложные, Интерактивные';
-// const screenPrice = 100;
-// const rollback = 10;
-// const fullPrice = 1000;
-// console.log(typeof fullPrice);
-// const adaptive = true;
-// console.log(typeof adaptive);
-// console.log(screens.length);
-// console.log(`${screenPrice}$`);
-// console.log(`${fullPrice}$`);
-// console.log(screens.toLowerCase());
-// console.log(screens.split(","));
-// console.log(fullPrice * (rollback / 100));
+const inputRange = document.querySelector(".rollback input");
+const inputRangeValue = document.querySelector(".rollback .range-value");
+
+const starBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
+
+const total = document.getElementsByClassName('total-input')[0];
+const totalCount = document.getElementsByClassName('total-input')[1];
+const totalCountOther = document.getElementsByClassName('total-input')[2];
+const fullTotalCount = document.getElementsByClassName('total-input')[3];
+const totalCountRollback = document.getElementsByClassName('total-input')[4];
+
+let screens = document.querySelectorAll('.screen');
+ 
+
 
 const appData = {
    title: '',
