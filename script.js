@@ -17,24 +17,32 @@ let rollback = 10;
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 let servicePercentPrice = fullPrice - (fullPrice * (rollback / 100));
 
+const showTypeOf = function(variable) {
+    console.log(variable, typeof variable);
+}
 
-if(fullPrice >= 30000) {
-    console.log("Даем скидку в 10%");
-} else if (fullPrice >= 15000 && fullPrice < 30000) {
-    console.log("Даем скидку в 5%");
-} else if (fullPrice >= 0 && fullPrice < 15000) {
-    console.log("Скидка не предусмотрена");
-} else {
-    console.log("Что то пошло не так");
+const getRollbackMessage = function(price) {
+        if(price >= 30000) {
+        return "Даем скидку в 10%";
+    } else if (price >= 15000 && price < 30000) {
+        return "Даем скидку в 5%";
+    } else if (price >= 0 && price < 15000) {
+        return "Скидка не предусмотрена";
+    } else {
+        return "Что то пошло не так";
+    }
 }
 
 
+
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
+
+console.log(getRollbackMessage(fullPrice));
+console.log(typeof title);
+console.log(typeof screenPrice);
+console.log(typeof adaptive);
+console.log(screens.length);
 console.log(servicePercentPrice);
-console.log(title);
-console.log(screens);
-console.log(screenPrice);
-console.log(adaptive);
-console.log(service1);
-console.log(servicePrice1);
-console.log(service2);
-console.log(servicePrice2);
+console.log('Стоимость верстки екранов ' + screenPrice + ' рублей/долларов/гривен/юаней');
