@@ -1,22 +1,22 @@
 
-const title = document.getElementsByTagName('h1')[0];
-const buttonPlus = document.querySelector('.screen_btn');
-const otherItemsPersent = document.querySelectorAll(".other-items.percent");
-const otherItemsNumber = document.querySelectorAll(".other-items.number");
+// const title = document.getElementsByTagName('h1')[0];
+// const buttonPlus = document.querySelector('.screen_btn');
+// const otherItemsPersent = document.querySelectorAll(".other-items.percent");
+// const otherItemsNumber = document.querySelectorAll(".other-items.number");
 
-const inputRange = document.querySelector(".rollback input");
-const inputRangeValue = document.querySelector(".rollback .range-value");
+// const inputRange = document.querySelector(".rollback input");
+// const inputRangeValue = document.querySelector(".rollback .range-value");
 
-const starBtn = document.getElementsByClassName('handler_btn')[0];
-const resetBtn = document.getElementsByClassName('handler_btn')[1];
+// const starBtn = document.getElementsByClassName('handler_btn')[0];
+// const resetBtn = document.getElementsByClassName('handler_btn')[1];
 
-const total = document.getElementsByClassName('total-input')[0];
-const totalCount = document.getElementsByClassName('total-input')[1];
-const totalCountOther = document.getElementsByClassName('total-input')[2];
-const fullTotalCount = document.getElementsByClassName('total-input')[3];
-const totalCountRollback = document.getElementsByClassName('total-input')[4];
+// const total = document.getElementsByClassName('total-input')[0];
+// const totalCount = document.getElementsByClassName('total-input')[1];
+// const totalCountOther = document.getElementsByClassName('total-input')[2];
+// const fullTotalCount = document.getElementsByClassName('total-input')[3];
+// const totalCountRollback = document.getElementsByClassName('total-input')[4];
 
-let screens = document.querySelectorAll('.screen');
+// let screens = document.querySelectorAll('.screen');
  
 
 
@@ -44,12 +44,24 @@ const appData = {
     return !isNaN(parseFloat(num)) && isFinite(num);
    },
 
+   isString: function(str) {
+      return isNaN(str);
+   },
+
    asking: function() {
-    appData.title = prompt('Как называется ваш проект?', 'Калькулятор верстки');
+    do {
+       appData.title = prompt('Как называется ваш проект?');
+    } while (!appData.isString(appData.title));
+    
    
    for(let i = 0; i < 2; i++) {
-        let name = prompt(' Какие типы екранов нужно разработать?');
-        let price = 0;
+       let name = prompt(' Какие типы екранов нужно разработать?');
+       let price = 0;
+
+       do {
+         name = prompt(' Какие типы екранов нужно разработать?');
+     } while (!appData.isString(name));
+ 
 
         do {
             price = prompt('Сколько будет стоить данная работа?');
@@ -59,8 +71,15 @@ const appData = {
     }
 
     for(let i = 0; i < 2; i++) {
+        
         let name = prompt('Какой дополнительный тип услуги нужен?'); 
+        
         let price = 0;
+         
+        do {
+            name = prompt('Какой дополнительный тип услуги нужен?'); 
+         } while (!appData.isString(name));
+     
 
     do {
        price = prompt('Сколько это будет стоить?');
@@ -69,8 +88,7 @@ const appData = {
     appData.services[name] = +price;
       
   }
-    
-    appData.adaptive = confirm('Нужен ли адаптив на сайте?');
+     appData.adaptive = confirm('Нужен ли адаптив на сайте?');
    },
 
    addPrices: function() {
@@ -115,6 +133,7 @@ getRollbackMessage: function(price) {
 }
 
 appData.start();
+
 
 
 
