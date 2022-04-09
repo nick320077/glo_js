@@ -55,11 +55,11 @@ const appData = {
     
    
    for(let i = 0; i < 2; i++) {
-       let name = prompt(' Какие типы екранов нужно разработать?');
+       let name = prompt('Какие типы екранов нужно разработать?');
        let price = 0;
 
        do {
-         name = prompt(' Какие типы екранов нужно разработать?');
+         name = prompt('Какие типы екранов нужно разработать?');
      } while (!appData.isString(name));
  
 
@@ -89,6 +89,7 @@ const appData = {
       
   }
      appData.adaptive = confirm('Нужен ли адаптив на сайте?');
+     
    },
 
    addPrices: function() {
